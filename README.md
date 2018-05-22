@@ -12,10 +12,11 @@
 但原始的code有個地方被我做了修改
 
 ###Generator Model
+
 原本的 generator 是將輸入的 random vector 化成 56X56 的matrix  
-然後再通過幾層CNN最後生成28*28的圖片  
+然後再通過幾層CNN最後生成 28X28 的圖片  
 但我其實不太確定為何要這樣做  
-所以改用比較常見的 deconvolution CNN 讓小的matrix慢慢還原成28*28的圖片  
+所以改用比較常見的 deconvolution CNN 讓小的matrix慢慢還原成 28X28 的圖片  
 例如:
 
 	// deconvolution layer
@@ -27,7 +28,9 @@
 	g2 = tf.nn.relu(g2)
 
 從生成的圖片來看,感覺效果有比較好一些  
-以下是一些隨機生成的圖片:
+
+###Generator Progress
+以下是一些 Generator 隨機生成的圖片:
 
 - iter = 0 : 還沒train的亂塗  
 ![img0](./img/gen_img0.png)
@@ -46,5 +49,5 @@
 ![img0](./img/gen_img7450.png)
 ![img0](./img/gen_img7750.png)
 
-我最後只train到 10000 iter  
+我只train到10000 iter  
 而後面生成的圖片沒有太明顯進步所以就不貼了
